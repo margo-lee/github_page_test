@@ -1,0 +1,106 @@
+.tabSet {
+  max-width: 90%;
+  margin: 1em auto;
+  overflow: hidden;
+  @extend %clearfix;
+  @include screen("mobile") {
+    width: auto;
+    height: auto !important;
+  }
+}
+.tabs {
+  position: relative;
+
+  // 改button
+  & > .tabItem {
+    &.active {
+      color: $color-brown; //#FFF;
+      border-top: 3px solid $color-orange;
+    }
+    a {
+      color: $color-brown;
+      font-size: 1.5em;
+    }
+    float: left;
+    margin: 0;
+    padding: 0;
+    margin-left: 3em;
+    font-size: 1em;
+    line-height: 1;
+    display: block;
+    padding: 16px 0 14px;
+    text-align: center;
+    border-top: 3px solid #fff;
+    color: $color-brown;
+    font-weight: bold;
+    text-decoration: none;
+    @include text-overflow;
+    box-sizing: border-box;
+    &:focus {
+      background: $primaryColor;
+    }
+    @include screen("mobile") {
+      float: none;
+      width: 100% !important;
+      border-bottom: 1px solid #888;
+      &.active {
+        border-color: #bbb;
+      }
+    }
+    &:last-child {
+      background-color: #666;
+      right: 860px;
+    }
+  }
+}
+// 顯示content
+.active + .tabContent {
+  display: block;
+}
+.tabContent {
+  position: absolute;
+  top: auto;
+  left: 0;
+  right: 0;
+  clear: both;
+  padding: 50px 50px;
+  display: none;
+  background: $color-brown;
+  @include screen("mobile") {
+    position: static;
+  }
+  ul {
+    @include li-reset;
+  }
+  li {
+    margin: 0 0 1.3em 0;
+    padding: 0;
+    line-height: 1.6;
+    text-align: left;
+    color: #fff;
+
+    @include screen("mobile") {
+      @include text-overflow();
+    }
+    a {
+      @include aSetting_nocolor;
+      color: #fff;
+      letter-spacing: 0.05em;
+      font-size: 1.1em;
+      &:hover,
+      :active {
+        color: #fff;
+      }
+      &:focus {
+        color: #fff;
+      }
+    }
+    time {
+      display: inline-block;
+      margin: 0 0 0 1em;
+      font-size: 0.813em;
+      color: #fff;
+      //   color: #666;
+    }
+  }
+}
